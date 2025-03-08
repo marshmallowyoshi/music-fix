@@ -1,5 +1,5 @@
 /.pytest_cache
 /.venv
 /.vscode
-/06 - A Sparrow Alighted upon our Shoulder.flac
+*.pyc
 /explore.ipynb
