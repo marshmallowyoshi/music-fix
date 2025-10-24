@@ -33,3 +33,6 @@ profile = "black"
 
 [tool.flake8]
 extend-ignore = ["E501"]
+
+[tool.pylint.MASTER]
+ignore-paths="""^.venv/.*$"""
