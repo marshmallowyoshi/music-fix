@@ -1,6 +1,35 @@
+[project]
+name = "music-fix"
+version = "0.1.0"
+dependencies = [
+    "music-tag>=0.4.3",
+    "mutagen>=1.47.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=25.9.0",
+    "isort>=7.0.0",
+    "mypy>=1.18.2",
+    "pylint>=2.20.0",
+    "pip-tools>=6.14.0",
+    "flake8>=7.0.0",
+    "flake8-pyproject>=1.2.3",
+]
+test = [
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+]
+all = [
+    "music-fix[dev,test]",
+]
+
 [[tool.mypy.overrides]]
 module = ["music_tag.*"]
 follow_untyped_imports = true
 
 [tool.isort]
 profile = "black"
+
+[tool.flake8]
+extend-ignore = ["E501"]
