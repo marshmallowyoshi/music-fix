@@ -1,0 +1,3 @@
+[[tool.mypy.overrides]]
+module = ["music_tag.*"]
+follow_untyped_imports = true
