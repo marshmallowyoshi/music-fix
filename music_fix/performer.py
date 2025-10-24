@@ -79,3 +79,27 @@ def set_display_artist(music_file: AnyMusicFile, artist: Iterable[str]) -> None:
     """Set display artist tag"""
     music_file["display artist"] = list(artist)
     music_file.save()
+
+def is_artist_valid(music_file: AnyMusicFile) -> bool:
+    """Check if artist is the same as display artist and only contains one value"""
+    ret = True
+    if has_display_artist(music_file) and (music_file["display artist"] != music_file["artist"]):
+        ret = False
+    if len(music_file["artist"]) != 1:
+        ret = False
+    return ret
+
+# higher level function will save file
+
+def fix_artist_display_mismatch(music_file: AnyMusicFile) -> None:
+    """Set artist tag to display artist tag"""
+    music_file["artist"] = music_file["display artist"]
+
+def fix_artist_too_many_values(music_file: AnyMusicFile) -> None:
+    """Keep only the first artist value"""
+    music_file["artist"] = music_file["artist"][0]
+
+def append_to_performers(music_file: AnyMusicFile, performers: list[str]):
+    """Append to performers tag"""
+    music_file["performers"] = music_file["performers"] + performers
+
