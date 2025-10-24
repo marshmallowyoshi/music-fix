@@ -1,3 +1,5 @@
+"""Manage 'display artist' tag in music files."""
+
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Iterable, TypeAlias
 
