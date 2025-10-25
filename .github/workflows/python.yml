@@ -24,3 +24,7 @@ jobs:
     - name: Run Pytest Unit Tests
       run: |
         pytest --cov=music_fix tests/
+    - name: Build package
+      run: |
+        pip install build
+        python -m build
