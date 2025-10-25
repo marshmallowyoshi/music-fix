@@ -3,7 +3,7 @@ name: Python package
 on: [push]
 
 jobs:
-  build:
+  testing:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -24,6 +24,17 @@ jobs:
     - name: Run Pytest Unit Tests
       run: |
         pytest --cov=music_fix tests/
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12", "3.13"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
     - name: Build package
       run: |
         pip install build
