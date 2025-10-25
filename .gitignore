@@ -4,3 +4,6 @@
 /06 - A Sparrow Alighted upon our Shoulder.flac
 /explore.ipynb
 *.pyc
+.coverage
+dist
+*.egg-info/
