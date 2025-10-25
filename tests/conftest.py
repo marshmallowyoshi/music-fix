@@ -1,4 +1,4 @@
-# pylint: disable=redefined-outer-name
+# pylint: disable=missing-docstring,redefined-outer-name
 import pathlib
 import shutil
 

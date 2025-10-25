@@ -1,3 +1,5 @@
+"""Create audio files for testing purposes."""
+
 import pathlib
 import wave
 
