@@ -7,10 +7,8 @@ name = "music-fix"
 version = "0.1.0"
 description = "A tool for fixing music file metadata"
 readme = "README.md"
-license = {text = "MIT"}
-authors = [
-    {name = "Your Name", email = "your.email@example.com"}
-]
+license = { text = "MIT" }
+authors = [{ name = "Your Name", email = "your.email@example.com" }]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -20,10 +18,15 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
 ]
 requires-python = ">=3.12,<3.14"
-dependencies = [
-    "music-tag>=0.4.3",
-    "mutagen>=1.47.0",
-]
+dependencies = ["music-tag>=0.4.3", "mutagen>=1.47.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["music_fix*"]
+exclude = ["mocks*"]
+
+[tool.setuptools.package-data]
+mocks = ["*.py"]
 
 [project.optional-dependencies]
 dev = [
@@ -35,13 +38,8 @@ dev = [
     "flake8>=7.0.0",
     "flake8-pyproject>=1.2.3",
 ]
-test = [
-    "pytest>=8.4.2",
-    "pytest-cov>=7.0.0",
-]
-all = [
-    "music-fix[dev,test]",
-]
+test = ["pytest>=8.4.2", "pytest-cov>=7.0.0", "ffmpy>=0.6.4"]
+all = ["music-fix[dev,test]"]
 
 [[tool.mypy.overrides]]
 module = ["music_tag.*"]
@@ -54,4 +52,8 @@ profile = "black"
 extend-ignore = ["E501"]
 
 [tool.pylint.MASTER]
-ignore-paths="""^.venv/.*$"""
+ignore-paths = """^.venv/.*$"""
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
