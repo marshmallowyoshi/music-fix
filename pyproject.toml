@@ -38,6 +38,7 @@ dev = [
 test = [
     "pytest>=8.4.2",
     "pytest-cov>=7.0.0",
+    "ffmpy>=0.6.4",
 ]
 all = [
     "music-fix[dev,test]",
